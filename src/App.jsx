@@ -7,8 +7,8 @@ function App() {
   const [notes, setNotes] = useState([]);
   const [selectedNoteId, setSelectedNoteId] = useState(null);
 
-  const handleSave = (text) => {
-    const newNote = { id: Date.now(), text };
+  const handleSave = (note) => {
+    const newNote = { id: Date.now(), ...note };
     setNotes([newNote, ...notes]);
   };
 

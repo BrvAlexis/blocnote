@@ -1,20 +1,27 @@
 import React, { useState } from 'react';
 
 function MarkdownInput({ onSave }) {
+    const [title, setTitle] = useState('');
     const [text, setText] = useState('');
   
-    const handleChange = (event) => {
+    const handleTitleChange = (event) => {
+      setTitle(event.target.value);
+    };
+  
+    const handleTextChange = (event) => {
       setText(event.target.value);
     };
   
     const handleSaveClick = () => {
-      onSave(text);
+      onSave({ title, text });
+      setTitle('');
       setText('');
     };
   
     return (
       <div>
-        <textarea value={text} onChange={handleChange} />
+        <input value={title} onChange={handleTitleChange} placeholder="Note Title" />
+        <textarea value={text} onChange={handleTextChange} placeholder="Note Content" />
         <button onClick={handleSaveClick}>Save</button>
       </div>
     );

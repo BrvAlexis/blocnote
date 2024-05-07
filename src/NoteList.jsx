@@ -5,7 +5,7 @@ function NoteList({ notes, onSelectNote }) {
       <ul>
         {notes.map((note) => (
           <li key={note.id} onClick={() => onSelectNote(note.id)}>
-            {note.text.substring(0, 20)}...
+            {note.title}: {note.text.substring(0, 15)}...
           </li>
         ))}
       </ul>
