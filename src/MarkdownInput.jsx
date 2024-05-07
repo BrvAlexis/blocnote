@@ -19,10 +19,10 @@ function MarkdownInput({ onSave }) {
     };
   
     return (
-      <div>
-        <input value={title} onChange={handleTitleChange} placeholder="Note Title" />
-        <textarea value={text} onChange={handleTextChange} placeholder="Note Content" />
-        <button onClick={handleSaveClick}>Save</button>
+      <div className="bottom-container">
+        <input className="input-field" value={title} onChange={handleTitleChange} placeholder="Titre" /><br></br>
+        <textarea className="input-field" value={text} onChange={handleTextChange} placeholder="Ecrit ton texte" /><br></br>
+        <button onClick={handleSaveClick}>Sauvegarder</button>
       </div>
     );
   }

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import MarkdownInput from './MarkdownInput';
 import NoteDisplay from './NoteDisplay';
 import NoteList from './NoteList';
+import './Styles.css';
 
 function App() {
   const [notes, setNotes] = useState([]);
@@ -16,9 +17,13 @@ function App() {
 
   return (
     <div className="App">
-      <NoteList notes={notes} onSelectNote={setSelectedNoteId} />
-      {selectedNote && <NoteDisplay note={selectedNote} />}
-      <MarkdownInput onSave={handleSave} />
+        <div className="note-list">
+          <NoteList notes={notes} onSelectNote={setSelectedNoteId} />
+        </div>
+        <div className="note-display">
+          {selectedNote && <NoteDisplay note={selectedNote} />}
+          <MarkdownInput onSave={handleSave} />
+        </div>
     </div>
   );
 }
