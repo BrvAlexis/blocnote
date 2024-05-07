@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
 import MarkdownInput from './MarkdownInput';
 import NoteDisplay from './NoteDisplay';
+import NoteList from './NoteList';
 
 function App() {
-  const [markdownText, setMarkdownText] = useState('');
+  const [notes, setNotes] = useState([]);
+  const [selectedNoteId, setSelectedNoteId] = useState(null);
 
   const handleSave = (text) => {
-    setMarkdownText(text);
+    const newNote = { id: Date.now(), text };
+    setNotes([newNote, ...notes]);
   };
+
+  const selectedNote = notes.find((note) => note.id === selectedNoteId);
 
   return (
     <div className="App">
-      <NoteDisplay markdownText={markdownText} />
+      <NoteList notes={notes} onSelectNote={setSelectedNoteId} />
+      {selectedNote && <NoteDisplay note={selectedNote} />}
       <MarkdownInput onSave={handleSave} />
     </div>
   );
