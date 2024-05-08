@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MarkdownInput from './MarkdownInput';
 import NoteDisplay from './NoteDisplay';
 import NoteList from './NoteList';
 import './Styles.css';
 
 function App() {
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState(JSON.parse(localStorage.getItem('notes')) || []);
   const [selectedNoteId, setSelectedNoteId] = useState(null);
+
+  useEffect(() => {
+    localStorage.setItem('notes', JSON.stringify(notes));
+  }, [notes]);
+
+
 
   const handleSave = (note) => {
     const newNote = { id: Date.now(), ...note };
