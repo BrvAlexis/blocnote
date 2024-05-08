@@ -75,7 +75,7 @@ body {
   
   .note-display {
     width: 75%;
-    padding: 10px;
+    padding: 0px;
     background-color: #060606;
     color: #fff;
   }
@@ -83,9 +83,24 @@ body {
   .note-display h2 {
     font-size: 24px;
     color: #f00;
+    padding: 20px;
+    
   }
   
   .note-display p {
     font-size: 16px;
-    line-height: 1.5;
+    line-height: 0;
+    padding: 20px;
+  }
+
+  .button-delete {
+    
+    margin-left: 20px;
+  }
+
+  .button-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
   }

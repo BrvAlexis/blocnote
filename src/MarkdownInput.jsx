@@ -8,6 +8,9 @@ function MarkdownInput({ onSave, note }) {
     if (note) {
       setTitle(note.title);
       setText(note.text);
+    } else {
+      setTitle('');
+      setText('');
     }
   }, [note]);
 

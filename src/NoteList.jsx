@@ -3,7 +3,7 @@ import React from 'react'
 function NoteList({ notes, onSelectNote, onNewNote }) {
     return (
       <div>
-      <button onClick={onNewNote}>Nouvelle Note</button> {/* Ajoutez ce bouton */}
+      <button className="button-center" onClick={onNewNote}>Ajouter une note</button> 
     <ul>
         {notes.map((note) => (
           <li key={note.id} className="note-item" onClick={() => onSelectNote(note.id)}>
