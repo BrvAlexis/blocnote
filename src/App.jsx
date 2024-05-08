@@ -12,7 +12,9 @@ function App() {
     localStorage.setItem('notes', JSON.stringify(notes));
   }, [notes]);
 
-
+  const handleNewNote = () => {
+    setSelectedNoteId(null); // Réinitialise la note sélectionnée
+  };
 
   const handleSave = (note) => {
     const newNote = { id: Date.now(), ...note };
@@ -28,11 +30,11 @@ function App() {
   return (
     <div className="App">
         <div className="note-list">
-          <NoteList notes={notes} onSelectNote={setSelectedNoteId} />
+          <NoteList notes={notes} onSelectNote={setSelectedNoteId} onNewNote={handleNewNote} />
         </div>
         <div className="note-display">
           {selectedNote && <NoteDisplay note={selectedNote} onDelete={handleDelete} />}
-          <MarkdownInput onSave={handleSave} />
+          {!selectedNote && <MarkdownInput onSave={handleSave} />}
         </div>
     </div>
   );

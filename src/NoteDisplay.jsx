@@ -11,6 +11,7 @@ function NoteDisplay({ note, onDelete }) {
         
         <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
         <button onClick={() => onDelete(note.id)}>Supprimer</button>
+        
       </div>
     );
 }
