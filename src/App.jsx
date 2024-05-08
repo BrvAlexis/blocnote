@@ -19,6 +19,10 @@ function App() {
     setNotes([newNote, ...notes]);
   };
 
+  const handleDelete = (id) => {
+    setNotes(notes.filter(note => note.id !== id));
+  };
+
   const selectedNote = notes.find((note) => note.id === selectedNoteId);
 
   return (
@@ -27,7 +31,7 @@ function App() {
           <NoteList notes={notes} onSelectNote={setSelectedNoteId} />
         </div>
         <div className="note-display">
-          {selectedNote && <NoteDisplay note={selectedNote} />}
+          {selectedNote && <NoteDisplay note={selectedNote} onDelete={handleDelete} />}
           <MarkdownInput onSave={handleSave} />
         </div>
     </div>

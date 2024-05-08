@@ -20,13 +20,21 @@ body {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: #f8f9fa;
+    background-color: #060606;
     padding: 20px;
   }
 
   .input-field {
     background-color: gray;
     color: white;
+    width: 100%; /* Définir la largeur */
+    height: 40px; /* Définir la hauteur */
+    margin-bottom: 20px; /* Ajouter une marge en bas */
+  
+  }
+
+  textarea.input-field {
+    height: 150px; /* Définir la hauteur pour la zone de texte */
   }
   
   .input-field::placeholder {
@@ -48,7 +56,12 @@ body {
   }
 
   .note-item {
-    margin-bottom: 20px; /* Pour laisser de l'espace entre les notes */
+    margin-bottom: 20px; 
+    transition: background-color 0.5s ease; /* Ajoute une transition douce lors du changement de couleur de fond */
+  }
+  
+  .note-item:hover {
+    background-color: #444; /* Change la couleur de fond lors du survol */
   }
   
   .note-title {
@@ -61,6 +74,18 @@ body {
   }
   
   .note-display {
-    width: 80%;
+    width: 75%;
     padding: 10px;
+    background-color: #060606;
+    color: #fff;
+  }
+  
+  .note-display h2 {
+    font-size: 24px;
+    color: #f00;
+  }
+  
+  .note-display p {
+    font-size: 16px;
+    line-height: 1.5;
   }
