@@ -4,7 +4,7 @@ function NoteList({ notes, onSelectNote, onNewNote }) {
     return (
       <div>
       <button className="button-center" onClick={onNewNote}>Ajouter une note</button> 
-    <ul>
+      <ul className="note-list-list">
         {notes.map((note) => (
           <li key={note.id} className="note-item" onClick={() => onSelectNote(note.id)}>
           <h2 className="note-title">{note.title}</h2>
