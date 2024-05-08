@@ -17,12 +17,24 @@ function App() {
   };
 
   const handleSave = (note) => {
-    const newNote = { id: Date.now(), ...note };
-    setNotes([newNote, ...notes]);
+    if (selectedNoteId) {
+      handleUpdate(note);
+    } else {
+      const newNote = { id: Date.now(), ...note };
+      setNotes([newNote, ...notes]);
+    }
   };
+
+  const handleUpdate = (note) => {
+    setNotes(notes.map((n) => (n.id === selectedNoteId ? { ...n, ...note } : n)));
+  };
+
 
   const handleDelete = (id) => {
     setNotes(notes.filter(note => note.id !== id));
+    if (id === selectedNoteId) {
+      setSelectedNoteId(null);
+    }
   };
 
   const selectedNote = notes.find((note) => note.id === selectedNoteId);
@@ -34,7 +46,7 @@ function App() {
         </div>
         <div className="note-display">
           {selectedNote && <NoteDisplay note={selectedNote} onDelete={handleDelete} />}
-          {!selectedNote && <MarkdownInput onSave={handleSave} />}
+          <MarkdownInput onSave={handleSave} note={selectedNote} />
         </div>
     </div>
   );
